@@ -16,7 +16,10 @@ class Student: # 定义一个名字为Student的类
     name = 'Unknown'  # 定义Student类中有一个name属性
     pass       # 一个空语句，起到占位作用，表示Student类中没有任何属性和方法
 
-
+    def SetName(self, newname): #定义类的普通方法SetName
+        self.name=newname #将self对应实例对象中的name属性值赋为newname
+    def PrintName(self): #定义类的普通方法PrintName
+        print('姓名：%s'%self.name) #输出self对应实例对象中的name属性值
 
 if __name__ == '__main__':
     stu = Student() # 创建Student类的对象，并将创建的对象赋给变量st
@@ -28,3 +31,7 @@ if __name__ == '__main__':
     Student.name = '未知'  # 将Student的类属性name赋为"未知"
     print('第9行输出：', Student.name)
     print('第10行输出：stu1 %s,stu2 %s' % (stu1.name, stu2.name))
+    stu1.SetName('李晓明')  # 通过stu1对象调用SetName方法
+    stu2.SetName('马红')  # 通过stu1对象调用SetName方法
+    stu1.PrintName()  # 通过stu1对象调用PrintName方法
+    stu2.PrintName()  # 通过stu2对象调用PrintName方法
