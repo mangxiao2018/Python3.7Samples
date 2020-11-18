@@ -14,12 +14,25 @@
 # 对类属性的访问，既可以直接通过类名访问，也可以通过该类的对象访问，访问方式为：类名或对象名.属性名
 class Student: # 定义一个名字为Student的类
     name = 'Unknown'  # 定义Student类中有一个name属性
+    __id = '未知'  # 定义Student类中有一个__id私有属性
     pass       # 一个空语句，起到占位作用，表示Student类中没有任何属性和方法
 
     def SetName(self, newname): #定义类的普通方法SetName
         self.name=newname #将self对应实例对象中的name属性值赋为newname
+
     def PrintName(self): #定义类的普通方法PrintName
         print('姓名：%s'%self.name) #输出self对应实例对象中的name属性值
+
+    def SetInfo(self,newname,newid): #定义SetInfo方法
+        self.name=newname #将self对应实例对象的name属性赋为newname
+        self.__id=newid #将self对应实例对象的__id属性赋为newid
+
+    def PrintInfo(self): #定义PrintInfo函数
+        print('姓名：%s，身份证号：%s'%(self.name,self.__id))
+
+# 私有属性，是指在类内可以直接访问、而在类外无法直接访问的属性。
+# Python中规定，在定义类时，如果一个类属性名是以__（两个下划线）开头，则该类属性为私有属性
+
 
 if __name__ == '__main__':
     stu = Student() # 创建Student类的对象，并将创建的对象赋给变量st
@@ -35,3 +48,6 @@ if __name__ == '__main__':
     stu2.SetName('马红')  # 通过stu1对象调用SetName方法
     stu1.PrintName()  # 通过stu1对象调用PrintName方法
     stu2.PrintName()  # 通过stu2对象调用PrintName方法
+
+    stu.PrintInfo()  # 通过stu对象调用PrintInfo方法
+    # print('身份证号：%s'%stu.__id) #取消前面的注释，则程序会报错
