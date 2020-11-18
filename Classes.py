@@ -30,6 +30,12 @@ class Student: # 定义一个名字为Student的类
     def PrintInfo(self): #定义PrintInfo函数
         print('姓名：%s，身份证号：%s'%(self.name,self.__id))
 
+    # 构造方法是Python类中的内置方法之一，
+    # 它的方法名为__init__，在创建一个类对象时会自动执行，负责完成新创建对象的初始化工作。
+    def __init__(self):
+        print('构造方法被调用！')
+        self.name = '未知'  # 将self对应对象的name属性赋值为“未知”
+
 # 私有属性，是指在类内可以直接访问、而在类外无法直接访问的属性。
 # Python中规定，在定义类时，如果一个类属性名是以__（两个下划线）开头，则该类属性为私有属性
 
@@ -51,3 +57,7 @@ if __name__ == '__main__':
 
     stu.PrintInfo()  # 通过stu对象调用PrintInfo方法
     # print('身份证号：%s'%stu.__id) #取消前面的注释，则程序会报错
+
+    # 实际上，Python中并不存在无法访问的私有属性。
+    # 如果我们在类中定义了一个私有属性，则在类外访问该私有属性时需要在私有属性名前加上“_类名”。
+    print('身份证号：% s' % stu._Student__id)
