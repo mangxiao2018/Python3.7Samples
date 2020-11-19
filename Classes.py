@@ -35,10 +35,23 @@ class Student: # 定义一个名字为Student的类
     def __init__(self):
         print('构造方法被调用！')
         self.name = '未知'  # 将self对应对象的name属性赋值为“未知”
+    """
+    提示：类对象销毁有如下三种情况：
+    （1）局部变量的作用域结束。
+    （2）使用del删除对象。
+    （3）程序结束时，程序中的所有对象都将被销毁
+    """
+    def __del__(self): #定义析构方法
+        print('姓名为%s的对象被销毁！'%self.name)
 
 # 私有属性，是指在类内可以直接访问、而在类外无法直接访问的属性。
 # Python中规定，在定义类时，如果一个类属性名是以__（两个下划线）开头，则该类属性为私有属性
 
+# 析构方法是类的另一个内置方法，它的方法名为__del__，在销毁一个类对象时会自动执行，负责完成待销毁对象的资源清理工作，如关闭文件等。
+
+
+def funcx(name):
+    stux=Student(name) #创建Student类对象stu
 
 if __name__ == '__main__':
     stu = Student() # 创建Student类的对象，并将创建的对象赋给变量st
@@ -61,3 +74,9 @@ if __name__ == '__main__':
     # 实际上，Python中并不存在无法访问的私有属性。
     # 如果我们在类中定义了一个私有属性，则在类外访问该私有属性时需要在私有属性名前加上“_类名”。
     print('身份证号：% s' % stu._Student__id)
+
+    stu3 = stu2
+    del stu2  # 使用del删除stu2对象
+    funcx('张刚')  # 调用func函数
+    del stu3  # 使用del删除stu3对象
+    stu4 = Student('刘建')  # 创建Student类对象stu4
