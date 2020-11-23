@@ -5,10 +5,10 @@ from bs4 import BeautifulSoup
 
 i=0
 
-with open('haidian-lianjia.csv','a') as file:
+with open('changping-lianjia.csv','a') as file:
      for j in range(1,100,1):
           i+=1
-          url = 'https://bj.lianjia.com/ershoufang/haidian/pg+str(i)'
+          url = 'https://bj.lianjia.com/ershoufang/changping/pg+str(i)'
           headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'}
           resp = requests.get(url,headers = headers).text
           # print(resp)
